@@ -1,9 +1,29 @@
-
 <html>
   <head>
-    <title>My ParseApp site</title>
+      <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
+
+
+
+    <title>VeriParty</title>
+
   </head>
   <body>
-    Hello World!
+  <script>
+    alert('entering body');
+    Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
+  </script>
+  <h1>Welcome to VeriParty</h1>
+    <script>
+        console.log();
+        Parse.Cloud.run('hello', {}, {
+        success: function(result) {
+            alert(result);
+            // result is 'Hello world!'
+        },
+        error: function(error) {
+            alert('error on hello')
+        }
+        });
+    </script>
   </body>
 </html>
