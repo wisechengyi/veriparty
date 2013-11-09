@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "VeriParty": {
+            "applicationId": "VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", 
+            "masterKey": "C4NlEgVeb9Kt2WFfE1Ub1KCwyXmT5UypGBlSipag"
+        }, 
+        "_default": {
+            "link": "VeriParty"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.12"
+    }
+}
