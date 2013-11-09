@@ -8,19 +8,24 @@
          header("Cache-Control: max-age=".$cache_expire);
          header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$cache_expire) . ' GMT');
      ?>
-      <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
-      <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-      <!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
-      <script>
-          Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
-      </script>
+      <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+      <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+      <script>  Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P"); </script>
     <title>VeriParty</title>
 
   </head>
   <body>
 
-  <h1>Welcome to VeriParty</h1>
-  <div id="firstmessage">nothing here</div>
+ <h1>Welcome to VeriParty</h1>
+ <p> <div id="firstmessage">Cloud Test...</div></p>
+
+
+ <div id="searcharea">
+     <input type="search" name="search" id="search" placeholder="" />
+ </div>
+
+
+ <div id="attendinglist"> </div>
   <div id="name"></div>
     <script>
 
@@ -53,69 +58,73 @@
               oauth     : true
           });
 
-// Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-          // for any authentication related change, such as login, logout or session refresh. This means that
-          // whenever someone who was previously logged out tries to log in again, the correct case below
-          // will be handled.
-          FB.Event.subscribe('auth.authResponseChange', function(response) {
-              // Here we specify what we do with the response anytime this event occurs.
-              if (response.status === 'connected') {
-                  // The response object is returned with a status field that lets the app know the current
-                  // login status of the person. In this case, we're handling the situation where they
-                  // have logged in to the app.
-                  FB.api('/me', function(response) {
-                      console.log(response);
-                      var temp = $('<h1/>',
-                              {
-                                  text: 'Your name is ' + response.name
-                              });
-                      $('#name').html(temp);
-                  });
 
-                  FB.ui(
-                          {
-                              method: 'feed',
-                              name: 'Preping for the hackathon',
-                              caption: "YOU DON'T WANT TO KNOW",
-                              description: (
-                                      'A small JavaScript library that allows you to harness ' +
-                                              'the power of Facebook, bringing the user\'s identity, ' +
-                                              'social graph and distribution power to your site.'
-                                      ),
-                              link: 'https://developers.facebook.com/docs/reference/javascript/',
-                              picture: 'http://www.fbrell.com/public/f8.jpg'
-                          },
-                          function(response) {
-                              if (response && response.post_id) {
-//                                  alert('Post was published.');
-                              } else {
-//                                  alert('Post was not published.');
-                              }
-                          }
-                  );
-              } else if (response.status === 'not_authorized') {
-                  alert('not authorized');
-                  // In this case, the person is logged into Facebook, but not into the app, so we call
-                  // FB.login() to prompt them to do so.
-                  // In real-life usage, you wouldn't want to immediately prompt someone to login
-                  // like this, for two reasons:
-                  // (1) JavaScript created popup windows are blocked by most browsers unless they
-                  // result from direct interaction from people using the app (such as a mouse click)
-                  // (2) it is a bad experience to be continually prompted to login upon page load.
-                  FB.login();
-              } else {
-                  alert('you need to log on facebook');
-                  // In this case, the person is not logged into Facebook, so we call the login()
-                  // function to prompt them to do so. Note that at this stage there is no indication
-                  // of whether they are logged into the app. If they aren't then they'll see the Login
-                  // dialog right after they log in to Facebook.
-                  // The same caveats as above apply to the FB.login() call here.
-                  FB.login();
-              }
-          });
-          // Additional initialization code such as adding Event Listeners goes here
       };
+      // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
+      // for any authentication related change, such as login, logout or session refresh. This means that
+      // whenever someone who was previously logged out tries to log in again, the correct case below
+      // will be handled.
+      FB.Event.subscribe('auth.authResponseChange', function(response) {
 
+          console.log(response);
+          // Here we specify what we do with the response anytime this event occurs.
+          if (response.status === 'connected') {
+              // The response object is returned with a status field that lets the app know the current
+              // login status of the person. In this case, we're handling the situation where they
+              // have logged in to the app.
+              FB.api('/me', function(myresponse) {
+//
+//                  var temp = $('<h1/>',
+//                          {
+//                              text: 'Your name is ' + response.name
+//                          });
+                  $('#name').html(myresponse.name);
+              });
+
+              FB.api('/1431638650383461/attending', function(myresponse) {
+                  console.log(myresponse);
+                  for (var i=0;i<myresponse.data.length;i++){
+                          var temp = $('<p/>',
+                          {
+                              text: myresponse.data[i].name
+                          });
+                      $('#attendinglist').append(temp);
+                  }
+
+              });
+
+
+//              FB.ui(
+//                      {
+//                          method: 'feed',
+//                          name: 'Preping for the hackathon',
+//                          caption: "YOU DON'T WANT TO KNOW",
+//                          description: (
+//                                  'A small JavaScript library that allows you to harness ' +
+//                                          'the power of Facebook, bringing the user\'s identity, ' +
+//                                          'social graph and distribution power to your site.'
+//                                  ),
+//                          link: 'http://veriparty.parseapp.com/',
+////                          picture: 'http://www.fbrell.com/public/f8.jpg'
+//                          picture: 'http://veriparty.parseapp.com/icon.jpg'
+//                      },
+//                      function(response) {
+//                          if (response && response.post_id) {
+////                                  alert('Post was published.');
+//                          } else {
+////                                  alert('Post was not published.');
+//                          }
+//                      }
+//              );
+          } else if (response.status === 'not_authorized') {
+              alert('not authorized');
+              FB.login();
+          } else {
+              alert('you need to log on facebook');
+              FB.login();
+          }
+      });
+      // Additional initialization code such as adding Event Listeners goes here
       // Load the SDK asynchronously
       (function(){
           // If we've already installed the SDK, we're done
