@@ -42,19 +42,6 @@
   <div id="fb-root"></div>
   <script src="//connect.facebook.net/en_US/all.js"></script>
   <script src="//connect.facebook.net/en_US/all/debug.js"></script>
-  <!--<script>-->
-      <!--$(document).ready(function() {-->
-          <!--$.ajaxSetup({ cache: true });-->
-          <!--$.getScript('//connect.facebook.net/en_UK/all.js', function(){-->
-              <!--FB.init({-->
-                  <!--appId: '582135378500426',-->
-                  <!--channelUrl: '//veriparty.parseapp.com/',-->
-              <!--});-->
-              <!--$('#loginbutton,#feedbutton').removeAttr('disabled');-->
-              <!--FB.getLoginStatus(updateStatusCallback);-->
-          <!--});-->
-      <!--});-->
-  <!--</script>-->
   <script>
       window.fbAsyncInit = function() {
           // init the FB JS SDK
@@ -100,9 +87,9 @@
                           },
                           function(response) {
                               if (response && response.post_id) {
-                                  alert('Post was published.');
+//                                  alert('Post was published.');
                               } else {
-                                  alert('Post was not published.');
+//                                  alert('Post was not published.');
                               }
                           }
                   );
@@ -129,14 +116,6 @@
           // Additional initialization code such as adding Event Listeners goes here
       };
 
-
-
-
-
-
-
-
-
       // Load the SDK asynchronously
       (function(){
           // If we've already installed the SDK, we're done
@@ -155,18 +134,6 @@
           // Insert the Facebook JS SDK into the DOM
           firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
       }());
-
-
-
-
   </script>
-
-
-
-  <!--<?php-->
-      <!--$ch = curl_init();-->
-      <!--curl_setopt($ch, CURLOPT_URL,"http://graph.facebook.com/yidangercheng");-->
-      <!--echo $ch;-->
-  <!--?>-->
   </body>
 </html>
