@@ -1,6 +1,8 @@
 /**
  * Created by yi-asus on 11/10/13.
  */
+
+Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
 var url = document.URL;
 var splitted = url.split('?');
 //     if (splitted.length<2 || splitted[1]==''){
@@ -130,7 +132,10 @@ function getEventInfo(event_id,FBhandle,userid){
 
 };
 
+
+
 function writeToDatabase(event_id,user_id){
+    Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
     //make sure the event_id, user_id
     var Partycode = Parse.Object.extend("PartyCodes");
     var query = new Parse.Query(Partycode);
@@ -150,7 +155,7 @@ function writeToDatabase(event_id,user_id){
                     success: function(gameScore) {
                         // Execute any logic that should take place after the object is saved.
                         alert('New object created with objectId: ' + gameScore.id);
-//                        new QRCode(document.getElementById("qrcode"), gameScore.id);
+                        makeQR(gameScore.id);
 
                     },
                     error: function(gameScore, error) {
@@ -167,11 +172,7 @@ function writeToDatabase(event_id,user_id){
                         text: 'You have already obtained a pass to this event with ID: ' + object.id
                     });
                 $('#updates').html(temp);
-				//var qr = new QRCode(document.getElementById("qrcode"), {
-				//	text: object.id,
-				//	class: 'dropshadowclass'
-				//	})
-//                new QRCode(document.getElementById("qrcode"), object.id);
+	                makeQR(object.id);
 
             }
 //                 console.log(object);
@@ -184,4 +185,18 @@ function writeToDatabase(event_id,user_id){
     return;
 
 
+};
+
+function makeQR(idstring){
+
+ var qrtag = new QRtag();
+    qrtag.data(idstring);
+    qrtag.id("qrcode");
+    qrtag.class_name("contactBackground");
+    qrtag.size(256); 
+    qrtag.border(10);
+    qrtag.color("#ff0000");
+    qrtag.bgcolor("#ffffff");
+    qrtag.target();
+    qrtag.print_image();
 };
