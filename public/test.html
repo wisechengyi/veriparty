@@ -34,6 +34,7 @@
 <div id="userinfo"> User info:</div>
  <div id="attendinglist"> Attending List:</div>
   <div id="name"></div>
+ <div id="updates"></div>
     <script>
         Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
         Parse.Cloud.run('hello', {}, {
@@ -159,23 +160,49 @@
 
      function writeToDatabase(event_id,user_id){
             //make sure the event_id, user_id
-             var Partycode = Parse.Object.extend("PartyCodes");
-             var gameScore = new Partycode();
+         var Partycode = Parse.Object.extend("PartyCodes");
+         var query = new Parse.Query(Partycode);
+         query.equalTo("event_id", event_id);
+         query.equalTo("user_id",user_id);
+         query.first({
+             success: function(object) {
+                 if (object===undefined){
+                     console.log('no obejct returned, proceed to insert');
+                       // write it
+//                     var Partycode = Parse.Object.extend("PartyCodes");
+                     var gameScore = new Partycode();
+                     gameScore.set("event_id", event_id);
+                     gameScore.set("user_id", user_id);
+                     gameScore.save(null, {
+                     success: function(gameScore) {
+                         // Execute any logic that should take place after the object is saved.
+                         alert('New object created with objectId: ' + gameScore.id);
+                     },
+                     error: function(gameScore, error) {
+                         // Execute any logic that should take place if the save fails.
+                         // error is a Parse.Error with an error code and description.
+                         alert('Failed to create new object, with error code: ' + error.description);
+                     }
+                     });
 
-             gameScore.set("event_id", event_id);
-             gameScore.set("user_id", user_id);
-
-             gameScore.save(null, {
-                 success: function(gameScore) {
-                     // Execute any logic that should take place after the object is saved.
-                     alert('New object created with objectId: ' + gameScore.id);
-                 },
-                 error: function(gameScore, error) {
-                     // Execute any logic that should take place if the save fails.
-                     // error is a Parse.Error with an error code and description.
-                     alert('Failed to create new object, with error code: ' + error.description);
                  }
-             });
+                 else{
+                     var temp = $('<p/>',
+                             {
+                                 text: 'You have already obtained a pass to this event with ID: ' + object.id
+                             });
+                     $('#updates').html(temp);
+                 }
+//                 console.log(object);
+                 // Successfully retrieved the object.
+             },
+             error: function(error) {
+                 alert("Error: " + error.code + " " + error.message);
+             }
+         });
+           return;
+
+
      };
  </script>
   </body>
