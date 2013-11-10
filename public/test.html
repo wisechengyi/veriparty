@@ -24,8 +24,8 @@
  <h1>Welcome to VeriParty</h1>
  <p> <div id="firstmessage">Cloud Test...</div></p>
 
- <div id='fb-root></div><!-- required for SDK initialization -->
-<a id='fb-login' href='#' onclick='facebookLogin()'>Login with Facebook</a>
+ <div id='fb-root'></div>
+
 
  <div id="searcharea"> </div>
      <input type="search" name="search" id="search" placeholder="" />
@@ -75,6 +75,7 @@
              xfbml: true,
              oauth: true
          });
+         facebookLogin();
      };
 
 
