@@ -31,7 +31,7 @@
      <input type="search" name="search" id="search" placeholder="" />
 
 
-
+<div id="userinfo"> User info:</div>
  <div id="attendinglist"> Attending List:</div>
   <div id="name"></div>
     <script>
@@ -48,6 +48,8 @@
             alert('error on hello')
         }
         });
+
+
     </script>
 
 
@@ -55,6 +57,16 @@
  <script src="//connect.facebook.net/en_US/all.js"></script>
  <script src="//connect.facebook.net/en_US/all/debug.js"></script>
  <script>
+
+     var url = document.URL;
+     var splitted = url.split('?');
+//     if (splitted.length<2 || splitted[1]==''){
+//         alert('Error: no event id passed');
+//         throw "Error: no event id passed";
+//     }
+     var eventidfromurl = url.split('?').pop();
+
+
      window.fbAsyncInit = function() {
          FB.init({
              appId: '582135378500426',
@@ -71,11 +83,35 @@
                      if (response.authResponse) {
                          console.log('Authenticated!');
                          FB.api('/me', function(myresponse) {
+                             console.log(myresponse);
                              var temp = $('<h1/>',
                                      {
-                                         text: 'Your name is ' + myresponse.name
+                                         text: 'Your name is ' + myresponse.name + myresponse.id
                                      });
                              $('#name').html(temp);
+                         });
+
+                        getEventInfo('1431638650383461',FB);
+
+                         alert('Supplied event id: '+eventidfromurl);
+                         var partycode = Parse.Object.extend("PartyCodes");
+                         var query = new Parse.Query(partycode);
+                         query.find({
+                             success: function(results) {
+//                                 alert("Successfully retrieved " + results.length + " scores.");
+                                 // Do something with the returned Parse.Object values
+                                 for (var i = 0; i < results.length; i++) {
+                                     var object = results[i];
+                                     var temp = $('<p/>',
+                                             {
+                                                 text: object.get('event_id') + '-'+object.get('user_id')
+                                             });
+                                     $('#userinfo').append(temp);
+                                 }
+                             },
+                             error: function(error) {
+                                 alert("Error: " + error.code + " " + error.message);
+                             }
                          });
                          // location.reload(); //or do whatever you want
                      } else {
@@ -101,6 +137,20 @@
          js.src = "//connect.facebook.net/en_US/all.js";
          d.getElementsByTagName('head')[0].appendChild(js);
      } (document));
+
+//     function getEventInfo(event_id,FBhandle){
+//
+//          FB.api('/'+event_id+'/attending', function(myresponse) {
+//          console.log(myresponse);
+//          for (var i=0;i<myresponse.data.length;i++){
+//                  var temp = $('<p/>',
+//                  {
+//                      text: myresponse.data[i].name
+//                  });
+//              $('#attendinglist').append(temp);
+//          }
+//          }
+//     }
  </script>
   </body>
 </html>
