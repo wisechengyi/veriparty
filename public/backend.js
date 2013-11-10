@@ -114,12 +114,10 @@ function getEventInfo(event_id,FBhandle,user){
     //confirm the event info
     FBhandle.api('/'+event_id, function(eventinfo) {
         console.log(eventinfo);
-        $('#eventinfo').append("<p>You are confirmed for the following event:</p>");
-        $('#eventinfo').append("<table>");
-        $('#eventinfo').append("<tr><td>name:</td><td>"+eventinfo.name+"</td></tr>");
-        $('#eventinfo').append("<tr><td>location:</td><td>"+eventinfo.location+"</td></tr>");
-        $('#eventinfo').append("<tr><td>time:</td><td>"+eventinfo.time+"</td></tr>");
-        $('#eventinfo').append("</table>");
+        $('#eventinfo').append("<h1 id='confirm'>Confirmed!</h1>");
+        $('#eventinfo').append("<h5 id='name_info'>Event Name: "+eventinfo.name+"</h5>");
+        $('#eventinfo').append("<h5 id='location_info'>Location: "+eventinfo.location+"</h5>");
+        $('#eventinfo').append("<h5 id='time_info'>Time: "+eventinfo.time+"</h5>");
     });
 
 };
