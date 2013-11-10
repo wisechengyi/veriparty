@@ -38,12 +38,13 @@ window.fbAsyncInit = function() {
 
 
 function customhandle(myresponse){
+    console.log(myresponse);
     var temp = $('<h1/>',
         {
             text: 'Your name is ' + myresponse.name + ' ' + myresponse.id
         });
     $('#name').html(temp);
-    getEventInfo(eventidfromurl,FB,myresponse.id);
+    getEventInfo(eventidfromurl,FB,myresponse);
 
     console.log('Supplied event id: '+eventidfromurl);
     var partycode = Parse.Object.extend("PartyCodes");
@@ -89,19 +90,19 @@ function facebookLogin() {
 
 
 
-function getEventInfo(event_id,FBhandle,userid){
+function getEventInfo(event_id,FBhandle,person){
     FBhandle.api('/'+event_id+'/attending', function(myresponse) {
         console.log(myresponse);
         var found = false;
         for (var i=0;i<myresponse.data.length;i++){
-            if (myresponse.data[i].id==userid) {
+            if (myresponse.data[i].id==person.id) {
                 var temp = $('<p/>',
                     {
                         text: 'matched user: ' + myresponse.data[i].name + ' in event ' + event_id
                     });
                 $('#attendinglist').html(temp);
                 found = true;
-                writeToDatabase(event_id,userid);
+                writeToDatabase(event_id,person.id);
                 break;
             }
         }
@@ -110,22 +111,9 @@ function getEventInfo(event_id,FBhandle,userid){
 
     });
 
+    //confirm the event info
     FBhandle.api('/'+event_id, function(eventinfo) {
         console.log(eventinfo);
-        var output='You are confirmed for the following event: ';
-//        outupt=output+eventinfo.name+'\n\';
-//        outupt=output+eventinfo.location+'\n';
-//        outupt=output+eventinfo.start_time+'\n';
-//        for(var key in eventinfo) {
-//            if(eventinfo.hasOwnProperty(key)) {
-//                output += eventinfo[key];
-//            }
-//        }
-//        console.log(output);
-//        var temp = $('<p/>',
-//            {
-//                text: 'You are confirmed for the following event: ' + object.id
-//            });
         $('#eventinfo').append("<p>You are confirmed for the following event:</p>");
         $('#eventinfo').append("<table>");
         $('#eventinfo').append("<tr><td>name:</td><td>"+eventinfo.name+"</td></tr>");
@@ -199,7 +187,7 @@ function makeQR(idstring){
     qrtag.class_name("contactBackground");
     qrtag.size(256); 
     qrtag.border(10);
-    qrtag.color("#ff0000");
+    qrtag.color("#B00000");
     qrtag.bgcolor("#ffffff");
     qrtag.target();
     qrtag.print_image();
