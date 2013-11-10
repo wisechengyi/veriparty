@@ -146,8 +146,8 @@ function showAttendingList(event_id){
 
 function queryThenPrint(event_id,user){
     //make sure the event_id, user_id
-//    console.log(event_id);
-//    console.log(user_id);
+    console.log(event_id);
+    console.log(user.id);
     var found = false;
     var Partycode = Parse.Object.extend("PartyCodes");
     var query = new Parse.Query(Partycode);
@@ -157,11 +157,11 @@ function queryThenPrint(event_id,user){
         success: function(object) {
             if (object===undefined){
                 $('#eventinfo').append("<tr><td>"+user.name+"</td>"
-                    + "<td>" +'false'+ "</td></tr>");
+                    + "<td>" + false + "</td></tr>");
             }
             else{
                 $('#eventinfo').append("<tr><td>"+user.name+"</td>"
-                    + "<td>" + 'true' + "</td></tr>");
+                    + "<td>" + true + "</td></tr>");
             }
         },
         error: function(error) {
