@@ -1,0 +1,103 @@
+<html>
+    <meta content="PG13" property="og:title" />
+    <meta property="og:url" content="http://veriparty.parseapp.com" />
+  <head>
+     <?php
+         $cache_expire = 60*60*24*365;
+         header("Pragma: public");
+         header("Cache-Control: max-age=".$cache_expire);
+         header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$cache_expire) . ' GMT');
+     ?>
+      <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+      <!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+
+
+
+
+    <title>VeriParty</title>
+  </head>
+  <body>
+
+ <h1>Welcome to VeriParty</h1>
+ <p> <div id="firstmessage">Cloud Test...</div></p>
+
+ <div id='fb-root></div><!-- required for SDK initialization -->
+<a id='fb-login' href='#' onclick='facebookLogin()'>Login with Facebook</a>
+
+ <div id="searcharea"> </div>
+     <input type="search" name="search" id="search" placeholder="" />
+
+
+
+ <div id="attendinglist"> Attending List:</div>
+  <div id="name"></div>
+    <!--<script>-->
+
+        <!--Parse.Cloud.run('hello', {}, {-->
+        <!--success: function(result) {-->
+            <!--var response = $('<h1/>',-->
+                    <!--{-->
+                        <!--text: result-->
+                    <!--});-->
+            <!--$('#firstmessage').html(response);-->
+        <!--},-->
+        <!--error: function(error) {-->
+            <!--alert('error on hello')-->
+        <!--}-->
+        <!--});-->
+    <!--</script>-->
+
+
+  <div id="fb-root"></div>
+ <script src="//connect.facebook.net/en_US/all.js"></script>
+ <script src="//connect.facebook.net/en_US/all/debug.js"></script>
+ <script>
+     window.fbAsyncInit = function() {
+         FB.init({
+             appId: '582135378500426',
+             status: true,
+             cookie: true,
+             xfbml: true,
+             oauth: true
+         });
+     };
+
+     function facebookLogin() {
+         FB.login(function(response) {
+                     console.log(response);
+                     if (response.authResponse) {
+                         console.log('Authenticated!');
+                         FB.api('/me', function(myresponse) {
+                             var temp = $('<h1/>',
+                                     {
+                                         text: 'Your name is ' + myresponse.name
+                                     });
+                             $('#name').html(temp);
+                         });
+                         // location.reload(); //or do whatever you want
+                     } else {
+                         console.log('User cancelled login or did not fully authorize.');
+                     }
+                 },
+                 {
+                     scope: 'email,user_checkins'
+                 });
+     };
+
+
+
+     (function(d) {
+         var js,
+                 id = 'facebook-jssdk';
+         if (d.getElementById(id)) {
+             return;
+         }
+         js = d.createElement('script');
+         js.id = id;
+         js.async = true;
+         js.src = "//connect.facebook.net/en_US/all.js";
+         d.getElementsByTagName('head')[0].appendChild(js);
+     } (document));
+ </script>
+  </body>
+</html>
