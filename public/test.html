@@ -2,6 +2,9 @@
     <meta content="PG13" property="og:title" />
     <meta property="og:url" content="http://veriparty.parseapp.com" />
   <head>
+
+      <script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"> </script>
+
      <?php
          $cache_expire = 60*60*24*365;
          header("Pragma: public");
@@ -31,21 +34,21 @@
 
  <div id="attendinglist"> Attending List:</div>
   <div id="name"></div>
-    <!--<script>-->
-
-        <!--Parse.Cloud.run('hello', {}, {-->
-        <!--success: function(result) {-->
-            <!--var response = $('<h1/>',-->
-                    <!--{-->
-                        <!--text: result-->
-                    <!--});-->
-            <!--$('#firstmessage').html(response);-->
-        <!--},-->
-        <!--error: function(error) {-->
-            <!--alert('error on hello')-->
-        <!--}-->
-        <!--});-->
-    <!--</script>-->
+    <script>
+        Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
+        Parse.Cloud.run('hello', {}, {
+        success: function(result) {
+            var elem = $('<h1/>',
+                    {
+                        text: result
+                    });
+            $('#firstmessage').html(elem);
+        },
+        error: function(error) {
+            alert('error on hello')
+        }
+        });
+    </script>
 
 
   <div id="fb-root"></div>
