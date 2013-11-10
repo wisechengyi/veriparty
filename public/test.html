@@ -13,7 +13,7 @@
          header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$cache_expire) . ' GMT');
      ?>
       <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-      <!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
+      <script type="text/javascript" src="http://api.qrtag.net/js"></script>
 
 
 
@@ -30,10 +30,10 @@
 
 <div id="eventinfo"></div>
 <div id="userinfo"> User info:</div>
- <div id="attendinglist"> Attending List:</div>
+ <div id="attendinglist">Attending List:</div>
   <div id="name"></div>
  <div id="updates"></div>
-
+ <img src="https://graph.facebook.com/shaverm/picture?type=large">
     <script>
 //        Parse.Cloud.run('hello', {}, {
 //        success: function(result) {

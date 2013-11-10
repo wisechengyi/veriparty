@@ -90,19 +90,19 @@ function facebookLogin() {
 
 
 
-function getEventInfo(event_id,FBhandle,person){
+function getEventInfo(event_id,FBhandle,user){
     FBhandle.api('/'+event_id+'/attending', function(myresponse) {
         console.log(myresponse);
         var found = false;
         for (var i=0;i<myresponse.data.length;i++){
-            if (myresponse.data[i].id==person.id) {
+            if (myresponse.data[i].id==user.id) {
                 var temp = $('<p/>',
                     {
                         text: 'matched user: ' + myresponse.data[i].name + ' in event ' + event_id
                     });
                 $('#attendinglist').html(temp);
                 found = true;
-                writeToDatabase(event_id,person.id);
+                writeToDatabase(event_id,user);
                 break;
             }
         }
@@ -126,31 +126,32 @@ function getEventInfo(event_id,FBhandle,person){
 
 
 
-function writeToDatabase(event_id,user_id){
+function writeToDatabase(event_id,user){
     Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
     //make sure the event_id, user_id
     var Partycode = Parse.Object.extend("PartyCodes");
     var query = new Parse.Query(Partycode);
     query.equalTo("event_id", event_id);
-    query.equalTo("user_id",user_id);
+    query.equalTo("user_id",user.id);
     query.first({
         success: function(object) {
             if (object===undefined){
                 console.log('no obejct returned, proceed to insert');
                 // write it
 //                     var Partycode = Parse.Object.extend("PartyCodes");
-                var gameScore = new Partycode();
-                gameScore.set("event_id", event_id);
-                gameScore.set("user_id", user_id);
-                gameScore.set("is_marked",false);
-                gameScore.save(null, {
-                    success: function(gameScore) {
+                var newEntry = new Partycode();
+                newEntry.set("event_id", event_id);
+                newEntry.set("user_id", user.id);
+                newEntry.set("name",user.name);
+                newEntry.set("is_marked",false);
+                newEntry.save(null, {
+                    success: function(newEntry) {
                         // Execute any logic that should take place after the object is saved.
-                        alert('New object created with objectId: ' + gameScore.id);
-                        makeQR(gameScore.id);
+                        alert('New object created with objectId: ' + newEntry.id);
+                        makeQR(newEntry.id);
 
                     },
-                    error: function(gameScore, error) {
+                    error: function(newEntry, error) {
                         // Execute any logic that should take place if the save fails.
                         // error is a Parse.Error with an error code and description.
                         alert('Failed to create new object, with error code: ' + error.description);
