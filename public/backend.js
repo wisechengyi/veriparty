@@ -5,10 +5,10 @@
 Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");
 var url = document.URL;
 var splitted = url.split('?');
-//     if (splitted.length<2 || splitted[1]==''){
-//         alert('Error: no event id passed');
-//         throw "Error: no event id passed";
-//     }
+     if (splitted.length<2 || splitted[1]==''){
+         alert('Error: no event id passed');
+         throw "Error: no event id passed";
+     }
 var eventidfromurl = url.split('?').pop();
 
 
@@ -92,6 +92,7 @@ function facebookLogin() {
 function getEventInfo(event_id,FBhandle,userid){
     FBhandle.api('/'+event_id+'/attending', function(myresponse) {
         console.log(myresponse);
+        var found = false;
         for (var i=0;i<myresponse.data.length;i++){
             if (myresponse.data[i].id==userid) {
                 var temp = $('<p/>',
@@ -99,11 +100,14 @@ function getEventInfo(event_id,FBhandle,userid){
                         text: 'matched user: ' + myresponse.data[i].name + ' in event ' + event_id
                     });
                 $('#attendinglist').html(temp);
+                found = true;
                 writeToDatabase(event_id,userid);
                 break;
             }
-
         }
+
+        if (!found) alert('Error: no user/event pair exists');
+
     });
 
     FBhandle.api('/'+event_id, function(eventinfo) {
