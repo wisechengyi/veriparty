@@ -120,9 +120,12 @@ function getEventInfo(event_id,FBhandle,userid){
 //            {
 //                text: 'You are confirmed for the following event: ' + object.id
 //            });
+        $('#eventinfo').append("<p>You are confirmed for the following event:</p>");
         $('#eventinfo').append("<table>");
-        $('#eventinfo').append("<tr><td>"+eventinfo.name+"</td></tr>");
-        
+        $('#eventinfo').append("<tr><td>name:</td><td>"+eventinfo.name+"</td></tr>");
+        $('#eventinfo').append("<tr><td>location:</td><td>"+eventinfo.location+"</td></tr>");
+        $('#eventinfo').append("<tr><td>time:</td><td>"+eventinfo.time+"</td></tr>");
+        $('#eventinfo').append("</table>");
     });
 
 };
