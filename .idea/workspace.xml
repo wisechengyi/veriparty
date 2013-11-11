@@ -22,13 +22,13 @@
     <favorites_list name="veriparty" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.40474704">
+    <splitter split-orientation="horizontal" split-proportion="0.49031854">
       <split-first>
         <leaf>
           <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/cloud/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="4" column="0" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
                   <folding />
                 </state>
               </provider>
@@ -37,7 +37,25 @@
           <file leaf-file-name="test.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/test.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="30" column="0" selection-start="875" selection-end="901" vertical-scroll-proportion="-3.1666667" vertical-offset="429" max-vertical-offset="1300">
+                <state line="32" column="24" selection-start="952" selection-end="952" vertical-scroll-proportion="-11.851851" vertical-offset="0" max-vertical-offset="1300">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.html" pinned="false" current="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/public/admin.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="13" column="7" selection-start="515" selection-end="515" vertical-scroll-proportion="0.29017857" vertical-offset="0" max-vertical-offset="896">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="admin.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/public/admin.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="137" column="32" selection-start="4239" selection-end="4239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4840">
                   <folding />
                 </state>
               </provider>
@@ -46,16 +64,16 @@
           <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://C:/wamp/www/gs/script.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="48" column="0" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1480">
+                <state line="68" column="0" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1480">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mystyle.css" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="mystyle.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://C:/wamp/www/gs/mystyle.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="152" column="22" selection-start="3022" selection-end="3022" vertical-scroll-proportion="0.74413645" vertical-offset="2342" max-vertical-offset="3640">
+                <state line="132" column="20" selection-start="2630" selection-end="2630" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="3640">
                   <folding />
                 </state>
               </provider>
@@ -68,16 +86,16 @@
           <file leaf-file-name="test3.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/public/test3.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="11" column="24" selection-start="506" selection-end="506" vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="4140">
+                <state line="168" column="43" selection-start="6126" selection-end="6134" vertical-scroll-proportion="-8.137931" vertical-offset="3124" max-vertical-offset="4140">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="backend.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="backend.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/public/backend.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="116" column="48" selection-start="3431" selection-end="3431" vertical-scroll-proportion="0.6918919" vertical-offset="1680" max-vertical-offset="4220">
+                <state line="120" column="7" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.37777779" vertical-offset="2060" max-vertical-offset="3960">
                   <folding />
                 </state>
               </provider>
@@ -109,8 +127,12 @@
         <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/test3.html" />
         <option value="$PROJECT_DIR$/public/forrealdo.html" />
-        <option value="$PROJECT_DIR$/public/test.html" />
         <option value="$PROJECT_DIR$/public/backend.js" />
+        <option value="$PROJECT_DIR$/public/test.html" />
+        <option value="$PROJECT_DIR$/public/js/admin.html" />
+        <option value="$PROJECT_DIR$/public/admin.html" />
+        <option value="C:/wamp/www/gs/script.js" />
+        <option value="$PROJECT_DIR$/public/admin.js" />
       </list>
     </option>
   </component>
@@ -188,6 +210,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veriparty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="veriparty" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -216,6 +256,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="vcs.Git" />
     <property name="FullScreen" value="false" />
+    <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -233,6 +274,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\yi-asus\Desktop\veriparty\public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Dropbox\fbhack\veriparty\public" />
     </key>
   </component>
   <component name="RunManager">
@@ -294,7 +338,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1874" height="1096" extended-state="6" />
+    <frame x="54" y="-8" width="1874" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -349,20 +393,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/wamp/www/gs/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="340" selection-end="480" vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="7" selection-start="141" selection-end="141" vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="2" selection-start="484" selection-end="484" vertical-scroll-proportion="0.0" vertical-offset="238" max-vertical-offset="680">
@@ -401,20 +431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cloud/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="4" selection-end="4" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/forrealdo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="56" selection-start="1916" selection-end="1916" vertical-scroll-proportion="0.8214286" vertical-offset="484" max-vertical-offset="1380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="58" column="31" selection-start="1880" selection-end="1880" vertical-scroll-proportion="-6.8965516" vertical-offset="960" max-vertical-offset="2820">
@@ -424,35 +440,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/test3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="24" selection-start="506" selection-end="506" vertical-scroll-proportion="-7.586207" vertical-offset="0" max-vertical-offset="4140">
+        <state line="168" column="43" selection-start="6126" selection-end="6134" vertical-scroll-proportion="-8.137931" vertical-offset="3124" max-vertical-offset="4140">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/backend.js">
+    <entry file="file://$PROJECT_DIR$/cloud/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="48" selection-start="3431" selection-end="3431" vertical-scroll-proportion="0.6918919" vertical-offset="1680" max-vertical-offset="4220">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="0" selection-start="875" selection-end="901" vertical-scroll-proportion="-3.1666667" vertical-offset="429" max-vertical-offset="1300">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/wamp/www/gs/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="0" selection-start="1594" selection-end="1594" vertical-scroll-proportion="0.0" vertical-offset="555" max-vertical-offset="1480">
+        <state line="32" column="24" selection-start="952" selection-end="952" vertical-scroll-proportion="-11.851851" vertical-offset="0" max-vertical-offset="1300">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://C:/wamp/www/gs/mystyle.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="22" selection-start="3022" selection-end="3022" vertical-scroll-proportion="0.74413645" vertical-offset="2342" max-vertical-offset="3640">
+        <state line="132" column="20" selection-start="2630" selection-end="2630" vertical-scroll-proportion="0.0" vertical-offset="2342" max-vertical-offset="3640">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/wamp/www/gs/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="0" selection-start="2055" selection-end="2055" vertical-scroll-proportion="0.0" vertical-offset="542" max-vertical-offset="1480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="32" selection-start="4239" selection-end="4239" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/admin.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="7" selection-start="515" selection-end="515" vertical-scroll-proportion="0.29017857" vertical-offset="0" max-vertical-offset="896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/backend.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="120" column="7" selection-start="3674" selection-end="3674" vertical-scroll-proportion="0.37777779" vertical-offset="2060" max-vertical-offset="3960">
           <folding />
         </state>
       </provider>

@@ -117,7 +117,7 @@ function getEventInfo(event_id,FBhandle,user){
         $('#eventinfo').append("<h1 id='confirm'>Confirmed!</h1>");
         $('#eventinfo').append("<h5 id='name_info'>Event Name: "+eventinfo.name+"</h5>");
         $('#eventinfo').append("<h5 id='location_info'>Location: "+eventinfo.location+"</h5>");
-        $('#eventinfo').append("<h5 id='time_info'>Time: "+eventinfo.time+"</h5>");
+        $('#eventinfo').append("<h5 id='time_info'>Time: "+eventinfo.start_time+"</h5>");
     });
 
 };

@@ -1,136 +1,57 @@
 <html>
-    <meta content="PG13" property="og:title" />
+    <meta content="Party" property="og:title" />
     <meta property="og:url" content="http://veriparty.parseapp.com" />
 	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
-	<link href = "css/bootstrap-responsive.css" rel="stylesheet" media="screen">
- <head><script>Parse.initialize("VveomUP33i8fEQoMSW9WnTkphnqiSPavEIeTF6Rn", "U25IKmBdFY577LeGyF8LZhKMzGJfKIpY6OlSJP3P");</script>
-     <?php
-         $cache_expire = 60*60*24*365;
-         header("Pragma: public");
-         header("Cache-Control: max-age=".$cache_expire);
-         header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$cache_expire) . ' GMT');
-     ?>
+
+  <head>
+  
+	  <link href = "http://veriparty.parseapp.com/css/bootstrap.css" rel="stylesheet" media="screen">
       <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-	  <script src="js/bootstrap.min.js"></script>
-      <!--<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>-->
 
-
-
-
-    <title>VeriParty</title>
+    <title>VeriParty - put the party in your hands!</title>
   </head>
   <body>
-
- <h1>Welcome to VeriParty</h1>
- <p> <div id="firstmessage">Cloud Test...</div></p>
-
-
- <div id="searcharea">
-     <input type="search" name="search" id="search" placeholder="" />
- </div>
-
-
- <div id="attendinglist"> Attending List:</div>
-  <div id="name"></div>
-    <!--<script>-->
-
-        <!--Parse.Cloud.run('hello', {}, {-->
-        <!--success: function(result) {-->
-            <!--var response = $('<h1/>',-->
-                    <!--{-->
-                        <!--text: result-->
-                    <!--});-->
-            <!--$('#firstmessage').html(response);-->
-        <!--},-->
-        <!--error: function(error) {-->
-            <!--alert('error on hello')-->
-        <!--}-->
-        <!--});-->
-    <!--</script>-->
-
-
   <div id="fb-root"></div>
- <script src="//connect.facebook.net/en_US/all.js"></script>
- <script src="//connect.facebook.net/en_US/all/debug.js"></script>
-
-  <script>
-
-      window.fbAsyncInit = function() {
-          // init the FB JS SDK
-          FB.init({
-              appId      : '582135378500426',                        // App ID from the app dashboard
-              channelUrl : 'http://veriparty.parseapp.com/', // Channel file for x-domain comms
-              status     : true,                                 // Check Facebook Login status
-              xfbml      : true,                                  // Look for social plugins on the page
-              oauth     : true
-          });
-
-          alert('Initialized!!  !fasfa')
-      // Here we subscribe to the auth.authResponseChange JavaScript event. This event is fired
-      // for any authentication related change, such as login, logout or session refresh. This means that
-      // whenever someone who was previously logged out tries to log in again, the correct case below
-      // will be handled
-      FB.Event.subscribe('auth.authResponseChange', function(response) {
-			alert('Here too!')
-          // Here we specify what we do with the response anytime this event occurs.
-          if (response.status === 'connected') {
-              // The response object is returned with a status field that lets the app know the current
-              // login status of the person. In this case, we're handling the situation where they
-              // have logged in to the app.
-			  console.log("It's alright!")
-              FB.api('/me', function(myresponse) {
-                  var temp = $('<h1/>',
-                          {
-                              text: 'Your name is ' + myresponse.name
-                          });
-                  $('#name').html(temp);
-              });
-
-//              FB.api('/1431638650383461/attending', function(myresponse) {
-//                  console.log(myresponse);
-//                  for (var i=0;i<myresponse.data.length;i++){
-//                          var temp = $('<p/>',
-//                          {
-//                              text: myresponse.data[i].name
-//                          });
-//                      $('#attendinglist').append(temp);
-//                  }
-//
-//              });
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=582135378500426";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  <br>
+  <br>
+  <h1>VeriParty</h1>
+  <br>
+  <br>
+  <h3>With VeriParty, the party is in your hands.</h3>
+  <h5>Enter your Facebook event link below, and post the VeriParty link on your event wall.</h5>
+  <h5>Users visit the link and get their unique party code</h5>
+  <h5>Guests present their unique code to a designated Party Technician(R)</h5>
+  <h3>VeriParty offers a quick and easy way for hosts and guests to RSVP, attend, and connect</h3>
+  <form class="form-inline" role="form">
+  <div class="form-group">
+    <input type="url" class="partyinput" id="partyurl" placeholder="Event URL">
+  <button type="button" class="btn btn-default" onclick="partydropdown()">Get Party</button>
+</form>
+	<div id="listurl"></div>
 
 
-
-          } else if (response.status === 'not_authorized') {
-              alert('not authorized');
-              FB.login();
-          } else {
-              alert('you need to log on facebook');
-              FB.login();
-          }
-      });
-      };
-      // Additional initialization code such as adding Event Listeners goes here
-      // Load the SDK asynchronously
-      (function(){
-          // If we've already installed the SDK, we're done
-          if (document.getElementById('facebook-jssdk')) {return;}
-
-          // Get the first script element, which we'll use to find the parent node
-          var firstScriptElement = document.getElementsByTagName('script')[0];
-
-          // Create a new script element and set its id
-          var facebookJS = document.createElement('script');
-          facebookJS.id = 'facebook-jssdk';
-          facebookJS.async = true;
-
-          // Set the new script's source to the source of the Facebook JS SDK
-          facebookJS.src = '//connect.facebook.net/en_US/all.js';
-
-          // Insert the Facebook JS SDK into the DOM
-          firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
-
-          alert('FBJS Injected');
-      }());
-  </script>
+	<br>
+	<h2> If you are hosting an event, download the confirmation app <a href=''>here</a></h2>
   </body>
-</html>
+  <footer class="span8">
+  <a href="https://twitter.com/share" class="twitter-share-button" data-related="veriparty">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+<g:plusone></g:plusone>
+<div class="fb-share-button" data-href="http://veriparty.parseapp.com" data-type="button_count"></div>
+</footer>
+  <script>
+  function partydropdown() {
+    $("#listurl").empty();
+	$("#listurl").append('<h3 class="appendedstuff">http://veriparty.parseapp.com/event.html?'+(($("#partyurl").val().split('\/'))[4])+'</h3>');
+	}
+  </script>
+  
+  </html>

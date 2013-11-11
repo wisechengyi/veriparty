@@ -300,6 +300,7 @@ a:focus {
 	background-color:#FFF;
 	padding:15px;
 	box-shadow: 0 0 20px #000000;
+	border-radius: 15px;
 	}
 
 .row:after {
@@ -785,29 +786,36 @@ h6 small {
 }
 
 @font-face {
-	font-family: 'Amplify';
-	src: url('http://veriparty.parseapp.com/font/Amplify.ttf');
+	font-family: 'MotionPicture';
+	src: url('http://veriparty.parseapp.com/fonts/MotionPicture.ttf');
 }
 
 h1,
 h2,
 h3 {
   line-height: 40px;
-  font-family: 'Amplify';
   letter-spacing: 1px;
+  color: #ffffff;
 }
 
 h1 {
-  font-size: 58.5px;
+  font-size: 70px;
   color: #ff0000;
+  font-family: 'MotionPicture';
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
   }
+  
+.airy{
+	font-family: 'MotionPicture';
+	}
 
 h2 {
   font-size: 31.5px;
 }
 
 h3 {
-  font-size: 24.5px;
+  font-size: 25.5px;
+  color: #ffffff;
 }
 
 h4 {
@@ -816,6 +824,8 @@ h4 {
 
 h5 {
   font-size: 14px;
+  color:#ffffff;
+  font-family: Century Gothic, sans-serif;
 }
 
 h6 {
@@ -1983,6 +1993,14 @@ legend + .control-group {
   margin-top: 20px;
   -webkit-margin-top-collapse: separate;
 }
+
+partyurl{
+	width: 100px;
+	}
+
+.partyinput{
+	width: 800px;
+	}
 
 .form-horizontal .control-group {
   margin-bottom: 20px;
